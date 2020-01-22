@@ -1,12 +1,25 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <NavItem/>
     </div>
-    <router-view/>
+    <div class="router-container">
+      <router-view/>
+    </div>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import NavItem from '@/components/NavItem.vue';
+
+export default {
+  name: 'app',
+  components: {
+    NavItem,
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -15,18 +28,26 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 #nav {
-  padding: 30px;
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  height: 100vh;
+  border-right: 1px solid #f5f5f5;
+  background-color: #f5f5f5;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.router-container {
+  width: 80%;
 }
 </style>
