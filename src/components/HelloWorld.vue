@@ -79,6 +79,5 @@ a {
   width: 60%;
   text-align: left;
   margin: 20px auto;
-
 }
 </style>

@@ -3,18 +3,18 @@
   <form action="POST" class="form" id="form">
     <div class="form-row  form-row--double">
       <label for="" class="form-label">
-        First Name
+        First Name*
         <input type="text" name="first-name" class="form-input" v-model="firstName">
       </label>
       <label for="" class="form-label">
-        Last Name
+        Last Name*
         <input type="text" name="last-name" class="form-input" v-model="lastName">
       </label>
     </div>
     <div class="form-row">
       <label for="" class="form-label">
-        Choose your country
-        <select name="" id="" class="form-select" v-model="country">
+        Choose your country*
+        <select name="" id="" class="form-select" v-model="country" required>
           <option value="Russia">Russia</option>
           <option value="Germany">Germany</option>
           <option value="France">France</option>
@@ -23,8 +23,8 @@
     </div>
     <div class="form-row  form-row--double">
       <label for="" class="form-label">
-        City
-        <input type="text" name="first-name" class="form-input" v-model="city">
+        City*
+        <input type="text" name="first-name" class="form-input" v-model="city" required>
       </label>
       <label for="" class="form-label">
         Zip Code
@@ -127,10 +127,18 @@ export default {
         width: 100%;
         margin-top: 10px;
         border-radius: 4px;
+
+        &:invalid {
+          border-color: $error;
+        }
       }
 
       .form-select {
         width: 100%;
+        background-color: $white;
+        &:invalid {
+          border-color: $error;
+        }
       }
     }
 

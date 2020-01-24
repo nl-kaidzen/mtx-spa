@@ -5,6 +5,14 @@
       <LineChart :chart-data="datacollection" :options="options"/>
     </div>
     <button v-on:click="startTimer" class="button">Generate dots every 30 ms</button>
+    <p class="text-big">
+      When you click on the button, data will
+       be generated and displayed on the graph. The delay is approximately
+      30ms, which will correspond to ~ 30 frames per second. Data will
+       be generated within 15 seconds.
+      I limited the size of the graph to 200 points along the X axis,
+       but this can be customized.
+    </p>
   </div>
 </template>
 
@@ -115,5 +123,12 @@ export default {
     background-color: $mint;
     color: $text;
   }
+}
+
+.text-big {
+  font-size: 24px;
+  width: 70%;
+  text-align: left;
+  margin: 20px auto;
 }
 </style>
