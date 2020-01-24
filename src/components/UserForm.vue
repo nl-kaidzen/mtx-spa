@@ -1,4 +1,3 @@
-/* eslint-disable func-names */
 <template>
   <form action="POST" class="form" id="form">
     <div class="form-row  form-row--double">
@@ -58,7 +57,6 @@ export default {
     };
   },
   computed: {
-    // eslint-disable-next-line object-shorthand
     formData: function fn() {
       return {
         name: this.firstName,
@@ -74,6 +72,7 @@ export default {
       event.preventDefault();
       // eslint-disable-next-line no-alert
       alert('See inside console');
+      // eslint-disable-next-line no-console
       console.dir(JSON.stringify(this.formData));
     },
   },
