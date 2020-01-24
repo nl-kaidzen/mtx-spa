@@ -1,10 +1,24 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+    <p class="text-big">
+      This is a test application to show my ability to work with
+      JavaScript and the Vue.js framework. Source code is lacated at
+      <a href="https://github.com/nl-kaidzen/mtx-spa" target="_blank" rel="noopener">my Github repository</a>.
+    </p>
+    <p class="text-big">
+      On the <b>User Form</b> tab, I placed a simple data entry form that
+      processes all fields in real time and creates JSON when
+      clicking Save. This JSON is output to the console.
+      I advise you to look there.
+    </p>
+    <p class="text-big">
+      On the <b>Charts</b> tab is a chart. When you click on the button, data will
+       be generated and displayed on the graph. The delay is approximately
+      30ms, which will correspond to ~ 30 frames per second. Data will
+       be generated within 15 seconds.
+      I limited the size of the graph to 200 points along the X axis,
+       but this can be customized.
     </p>
     <h3>Installed CLI Plugins</h3>
     <ul>
@@ -56,5 +70,15 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello {
+  padding: 0 20px;
+}
+.text-big {
+  font-size: 24px;
+  width: 60%;
+  text-align: left;
+  margin: 20px auto;
+
 }
 </style>
