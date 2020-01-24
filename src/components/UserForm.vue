@@ -74,7 +74,7 @@ export default {
       event.preventDefault();
       // eslint-disable-next-line no-alert
       alert('See inside console');
-      console.dir(this.formData);
+      console.dir(JSON.stringify(this.formData));
     },
   },
 };
