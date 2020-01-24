@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="https://www.montronix.com//images/Inhalt/MTX_Logo.svg" width="500" height="150">
+    <HelloWorld msg="Welcome to test SPA for MTX"/>
   </div>
 </template>
 
