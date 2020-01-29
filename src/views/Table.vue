@@ -1,19 +1,26 @@
 <template>
   <div>
     <h1>Simple table view</h1>
+    <CustomTable :table-data="this.recievedData" />
     <button class="button table__button" v-on:click="recieveData">Recieve data from server</button>
   </div>
 </template>
 
 <script>
+import CustomTable from '../components/CustomTable.vue';
 
 export default {
   name: 'table',
+  components: {
+    CustomTable,
+  },
   methods: {
     recieveData() {
-      this.recievedData = fetch('https://api.myjson.com/bins/1giyku')
-        .then(response => response.json());
-      console.log(this.recievedData);
+      fetch('https://api.myjson.com/bins/1giyku')
+        .then(response => response.json())
+        .then((response) => {
+          this.recievedData = response;
+        });
     },
   },
   data() {
