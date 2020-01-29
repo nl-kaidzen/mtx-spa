@@ -3,27 +3,27 @@
     <tbody>
       <tr>
         <td class="table-cell table-cell--heading">Name</td>
-        <td class="table-cell">Andrey</td>
+        <td class="table-cell">{{this.tableData.name}}</td>
       </tr>
       <tr>
         <td class="table-cell table-cell--heading">Last</td>
-        <td class="table-cell">Khabarow</td>
+        <td class="table-cell">{{this.tableData.lastname}}</td>
       </tr>
       <tr>
         <td class="table-cell table-cell--heading">Country</td>
-        <td class="table-cell">Germany</td>
+        <td class="table-cell">{{this.tableData.country}}</td>
       </tr>
       <tr>
         <td class="table-cell table-cell--heading">City</td>
-        <td class="table-cell">Munich</td>
+        <td class="table-cell">{{this.tableData.city}}</td>
       </tr>
       <tr>
         <td class="table-cell table-cell--heading">Zip Code</td>
-        <td class="table-cell">640112</td>
+        <td class="table-cell">{{this.tableData.zipcode}}</td>
       </tr>
       <tr>
         <td class="table-cell table-cell--heading">OS</td>
-        <td class="table-cell">MacOS</td>
+        <td class="table-cell">{{this.tableData.os}}</td>
       </tr>
     </tbody>
   </table>
@@ -32,6 +32,7 @@
 <script>
 export default {
   name: 'CustomTable',
+  props: ['tableData'],
 };
 </script>
 <style lang="scss">
