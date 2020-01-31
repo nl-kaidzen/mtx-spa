@@ -4,6 +4,17 @@
     <div id="chart">
       <LineChart :chart-data="datacollection" :options="options"/>
     </div>
+    <div class="settings">
+      <h1 class="settings__header">Settings</h1>
+      <label class="settings__label" for="">Delay between generating dots
+        <input class="settings__input" type="text" name="" id="" v-model="delay">
+      </label>
+      <label class="settings__label" for="">Max count of dots at chart
+        <input class="settings__input" type="text" name="" id="" v-model="maxItems">
+      </label>
+      <span>{{this.delay}}</span>
+      <span>{{this.maxItems}}</span>
+    </div>
     <button v-on:click="startTimer" class="button">Generate dots every 30 ms</button>
     <p class="text-big">
       When you click on the button, data will
@@ -31,22 +42,13 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
       },
-      dataSet: {
-        label: '',
-        backgroundColor: '',
-        borderColor: '',
-        data: '',
-      },
       maxItems: 300,
       index: 0,
       min: -50,
       max: 50,
       dataDotsArray: [],
       dataLabelsArray: [],
-      chartData: {
-        labels: [],
-        datasets: [],
-      },
+      delay: 30,
     };
   },
   methods: {
@@ -130,5 +132,26 @@ export default {
   width: 70%;
   text-align: left;
   margin: 20px auto;
+}
+
+.settings {
+  &__input {
+    display: flex;
+        font-size: 20px;
+        align-items: center;
+        padding: 15px 20px;
+        border: 2px solid $whitesmoke;
+        width: 30%;
+        border-radius: 4px;
+  }
+
+  &__label {
+    font-size: 20px;
+    color: $text;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 15% 0;
+    align-items: center;
+  }
 }
 </style>
