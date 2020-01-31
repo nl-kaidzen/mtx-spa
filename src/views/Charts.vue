@@ -6,6 +6,16 @@
     </div>
     <div class="settings">
       <h1 class="settings__header">Settings</h1>
+      <div class="settings__taggle-wrap">
+        <label for="toggler" class="settings__toggle-label">
+          Use custom settings for chart:
+          <input class="settings__toggle-cb" type="checkbox" name="" id="toggler"
+                 v-model="custom">
+          <div class="toggle-body" :class="{'active': custom}">
+            <span class="toggle" :class="{'active': custom}"></span>
+          </div>
+        </label>
+      </div>
       <label class="settings__label" for="">Delay between generating dots
         <input class="settings__input" type="text" name="" id="" v-model="delay">
       </label>
@@ -49,6 +59,7 @@ export default {
       dataDotsArray: [],
       dataLabelsArray: [],
       delay: 30,
+      custom: false,
     };
   },
   methods: {
@@ -152,6 +163,41 @@ export default {
     justify-content: space-between;
     margin: 20px 15% 0;
     align-items: center;
+  }
+}
+
+.toggle-body {
+  display: flex;
+  background-color: whitesmoke;
+  border: 2px solid #c5c5c5;
+  width: 50px;
+  height: 25px;
+  border-radius: 12.5px;
+  position: relative;
+  transition: all 0.3s ease-in;
+
+  &.active {
+    border-color: $purple;
+    background-color: $purple-lighter;
+  }
+}
+
+.toggle {
+  position: absolute;
+  display: block;
+  width: 19px;
+  height: 19px;
+  background-color: #c5c5c5;
+  border-radius: 50%;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1px;
+  transition: all 0.3s ease-in;
+
+  &.active {
+    background-color: $purple;
+    left: 26px;
   }
 }
 </style>
