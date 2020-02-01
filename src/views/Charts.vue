@@ -121,19 +121,19 @@ export default {
   text-transform: uppercase;
   height: 40px;
   background-color: transparent;;
-  border: 2px solid $mint;
+  border: 2px solid $secondary;
   border-radius: 4px;
   margin: 20px auto 0;
   padding: 0 20px;
   cursor: pointer;
-  color: $mint;
+  color: $secondary;
   font-size: 16px;
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
 
   &:hover,
   &:focus {
-    background-color: $mint;
+    background-color: $secondary;
     color: $text;
   }
 }
@@ -169,24 +169,23 @@ export default {
 .toggle-body {
   display: flex;
   background-color: whitesmoke;
-  border: 2px solid #c5c5c5;
   width: 50px;
-  height: 25px;
-  border-radius: 12.5px;
+  height: 20px;
+  border-radius: 10px;
   position: relative;
   transition: all 0.3s ease-in;
 
   &.active {
-    border-color: $purple;
-    background-color: $purple-lighter;
+    border-color: $primary;
+    background-color: $primary-lighter;
   }
 }
 
 .toggle {
   position: absolute;
   display: block;
-  width: 19px;
-  height: 19px;
+  width: 25px;
+  height: 25px;
   background-color: #c5c5c5;
   border-radius: 50%;
   cursor: pointer;
@@ -196,7 +195,7 @@ export default {
   transition: all 0.3s ease-in;
 
   &.active {
-    background-color: $purple;
+    background-color: $primary;
     left: 26px;
   }
 }

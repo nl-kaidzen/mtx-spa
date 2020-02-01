@@ -50,24 +50,24 @@ export default {
       color: $text;
       &:hover,
       &:focus {
-        background-color: $mint;
+        background-color: $secondary;
       }
       &:active {
-        background-color: $mint-darker;
+        background-color: $secondary-darker;
       }
     }
 
     .router-link-active {
       &.router-link-exact-active {
-        background-color: $purple-lighter;
+        background-color: $primary-lighter;
         &:hover {
-          background-color: $purple-darker;
+          background-color: $primary-darker;
         }
         &:active {
-          background-color: $purple;
+          background-color: $primary;
         }
         &:focus {
-          background-color: $purple-lighter;
+          background-color: $primary-lighter;
         }
       }
     }

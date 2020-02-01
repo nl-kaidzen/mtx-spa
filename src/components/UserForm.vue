@@ -148,7 +148,7 @@ export default {
       text-transform: uppercase;
       height: 40px;
       background-color: transparent;;
-      border: 2px solid $mint;
+      border: 2px solid $secondary;
       border-radius: 4px;
       margin: 0 auto;
       padding: 0 20px;
@@ -160,7 +160,7 @@ export default {
 
       &:hover,
       &:focus {
-        background-color: $mint;
+        background-color: $secondary;
       }
     }
   }

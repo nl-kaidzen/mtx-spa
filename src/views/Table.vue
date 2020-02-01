@@ -40,18 +40,18 @@ export default {
   text-transform: uppercase;
   height: 40px;
   background-color: transparent;;
-  border: 2px solid $mint;
+  border: 2px solid $secondary;
   border-radius: 4px;
   padding: 0 20px;
   cursor: pointer;
-  color: $mint;
+  color: $secondary;
   font-size: 16px;
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
 
   &:hover,
   &:focus {
-    background-color: $mint;
+    background-color: $secondary;
     color: $text;
   }
 }
