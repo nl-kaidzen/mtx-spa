@@ -41,12 +41,12 @@ export default {
     width: 70%;
     margin: 0 auto;
     font-size: 24px;
-    border: 2px solid primary;
+    border: 2px solid $primary;
     border-collapse: collapse;
 
     &-cell {
       padding: 20px 30px;
-      border: 2px solid primary;
+      border: 2px solid $primary;
     }
 
     &-cell--heading {

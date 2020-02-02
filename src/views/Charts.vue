@@ -6,22 +6,24 @@
     </div>
     <div class="settings">
       <h1 class="settings__header">Settings</h1>
-      <div class="settings__taggle-wrap">
-        <label for="toggler" class="settings__toggle-label">
-          Use custom settings for chart:
-          <input class="settings__toggle-cb" type="checkbox" name="" id="toggler"
-                 v-model="custom">
-          <div class="toggle-body" :class="{'active': custom}">
-            <span class="toggle" :class="{'active': custom}"></span>
-          </div>
+      <div class="settings__toggle-wrap">
+        <h2 class="settings__label-toggle">Use my custom settings: </h2>
+        <div class="toggle-body" :class="{'active': custom}" v-on:click="custom = !custom">
+          <span class="toggle" :class="{'active': custom}"
+            ></span>
+        </div>
+      </div>
+      <div class="settings__custom" v-show="custom">
+        <label class="settings__label" for="">Delay between generating dots
+          <input class="settings__input" type="text" name="" id="" v-model="delay">
+        </label>
+        <label class="settings__label" for="">Max count of dots at chart
+          <input class="settings__input" type="text" name="" id="" v-model="maxItems">
+        </label>
+        <label class="settings__label" for="">Genereting cycle time limit
+          <input class="settings__input" type="text" name="" id="" v-model="timeLimit">
         </label>
       </div>
-      <label class="settings__label" for="">Delay between generating dots
-        <input class="settings__input" type="text" name="" id="" v-model="delay">
-      </label>
-      <label class="settings__label" for="">Max count of dots at chart
-        <input class="settings__input" type="text" name="" id="" v-model="maxItems">
-      </label>
       <span>{{this.delay}}</span>
       <span>{{this.maxItems}}</span>
     </div>
@@ -51,6 +53,17 @@ export default {
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        scales: {
+          xAxes: [{
+            display: true,
+            stacked: true,
+            ticks: {
+              min: 0, // minimum value
+              max: 200, // maximum value
+              beginAtZero: true,
+            },
+          }],
+        },
       },
       maxItems: 300,
       index: 0,
@@ -59,13 +72,14 @@ export default {
       dataDotsArray: [],
       dataLabelsArray: [],
       delay: 30,
+      timeLimit: 15000,
       custom: false,
     };
   },
   methods: {
     startTimer() {
-      const timerId = setInterval(this.generateData, 30, this.index);
-      setTimeout(() => clearInterval(timerId), 15000);
+      const timerId = setInterval(this.generateData, this.delay, this.index);
+      setTimeout(() => clearInterval(timerId), this.timeLimit);
     },
     stopTimer() {
     },
@@ -91,7 +105,7 @@ export default {
         x: i,
         y: this.getRandomInt(this.min, this.max),
       });
-      if (this.dataDotsArray.length <= this.maxItems) {
+      if (this.dataDotsArray.length < this.maxItems) {
         this.dataLabelsArray.push('');
       } else {
         this.dataDotsArray.splice(0, 1);
@@ -156,6 +170,12 @@ export default {
         border-radius: 4px;
   }
 
+  &__toggle-wrap {
+    display: flex;
+    margin: 20px 15% 0;
+    align-items: center;
+  }
+
   &__label {
     font-size: 20px;
     color: $text;
@@ -163,6 +183,15 @@ export default {
     justify-content: space-between;
     margin: 20px 15% 0;
     align-items: center;
+  }
+
+  &__label-toggle {
+    margin: 0;
+    margin-right: 20px;
+  }
+
+  &__custom {
+    user-select: none;
   }
 }
 
@@ -174,6 +203,7 @@ export default {
   border-radius: 10px;
   position: relative;
   transition: all 0.3s ease-in;
+  cursor: pointer;
 
   &.active {
     border-color: $primary;
@@ -191,12 +221,22 @@ export default {
   cursor: pointer;
   top: 50%;
   transform: translateY(-50%);
-  left: 1px;
+  left: -3px;
   transition: all 0.3s ease-in;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0px 0px 0px 10px rgba(197,197,197,0.5);
+  }
 
   &.active {
     background-color: $primary;
     left: 26px;
+
+    &:focus,
+    &:hover {
+      box-shadow: 0px 0px 0px 10px rgba(24,103,192,0.35);
+    }
   }
 }
 </style>
