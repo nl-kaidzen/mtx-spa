@@ -72,12 +72,19 @@ a {
   color: #42b983;
 }
 .hello {
-  padding: 0 20px;
+  padding: 0;
+
+  @media (min-width: 1200px) {
+    padding: 0 20px;
+  }
 }
 .text-big {
-  font-size: 24px;
-  width: 60%;
-  text-align: left;
-  margin: 20px auto;
+  width: 100%;
+  font-size: 16px;
+  @media (min-width: 1200px) {
+    font-size: 24px;
+    width: 60%;
+    margin: 20px auto;
+  }
 }
 </style>

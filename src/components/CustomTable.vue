@@ -38,15 +38,25 @@ export default {
 <style lang="scss">
   @import '../assets/helpers/_variables';
   .table {
-    width: 70%;
+    width: 100%;
+    font-size: 16px;
     margin: 0 auto;
-    font-size: 24px;
     border: 2px solid $primary;
     border-collapse: collapse;
 
+    @media (min-width: 1200px) {
+      width: 70%;
+      font-size: 24px;
+    }
+
     &-cell {
-      padding: 20px 30px;
+      padding: 10px 15px;
       border: 2px solid $primary;
+
+      @media (min-width: 1200px) {
+        padding: 20px 30px;
+        border: 2px solid $primary;
+      }
     }
 
     &-cell--heading {

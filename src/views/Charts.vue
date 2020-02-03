@@ -24,8 +24,6 @@
           <input class="settings__input" type="text" name="" id="" v-model="timeLimit">
         </label>
       </div>
-      <span>{{this.delay}}</span>
-      <span>{{this.maxItems}}</span>
     </div>
     <button v-on:click="startTimer" class="button">Generate dots every 30 ms</button>
     <p class="text-big">
@@ -153,36 +151,64 @@ export default {
 }
 
 .text-big {
-  font-size: 24px;
-  width: 70%;
-  text-align: left;
-  margin: 20px auto;
+  width: 100%;
+  font-size: 16px;
+
+  @media (min-width: 1200px) {
+    font-size: 24px;
+    width: 70%;
+    text-align: left;
+    margin: 20px auto;
+  }
+}
+
+h2 {
+  font-size: 16px;
+
+  @media (min-width: 1200px) {
+    font-size: 24px;
+  }
 }
 
 .settings {
   &__input {
     display: flex;
-        font-size: 20px;
-        align-items: center;
-        padding: 15px 20px;
-        border: 2px solid $whitesmoke;
-        width: 30%;
-        border-radius: 4px;
+    align-items: center;
+    border: 2px solid $whitesmoke;
+    width: 30%;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 15px 10px;
+
+    @media (min-width: 1200px) {
+      font-size: 20px;
+      padding: 15px 20px;
+    }
   }
 
   &__toggle-wrap {
     display: flex;
-    margin: 20px 15% 0;
+    margin: 10px 0 0;
     align-items: center;
+
+    @media (min-width: 1200px) {
+      margin: 20px 15% 0;
+    }
   }
 
   &__label {
-    font-size: 20px;
     color: $text;
     display: flex;
     justify-content: space-between;
-    margin: 20px 15% 0;
     align-items: center;
+    font-size: 16px;
+    width: 100%;
+    margin: 10px 0 0;
+
+    @media (min-width: 1200px) {
+      font-size: 20px;
+      margin: 20px 15% 0;
+    }
   }
 
   &__label-toggle {
