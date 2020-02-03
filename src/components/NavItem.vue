@@ -1,5 +1,6 @@
 <template>
-  <ul class="nav-list">
+  <ul class="nav-list"
+    @click="closeBurgerMenu">
     <li class="nav-item">
       <router-link to="/">Home</router-link>
     </li>
@@ -18,20 +19,44 @@
 <script>
 export default {
   name: 'NavItem',
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
+  methods: {
+    closeBurgerMenu() {
+      const elem = document.querySelector('.nav-list');
+      elem.classList.toggle('open');
+    },
+  },
 };
 </script>
 
 <style lang="scss">
   @import '../assets/helpers/_variables';
   .nav-list {
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: auto;
-    padding: 20px 2%;
-    background-color: transparent;
+    height: 100%;
+    left: -75%;
     list-style: none;
     margin: 0;
+    padding: 20px 2%;
+    position: fixed;
+    top: 50px;
+    transition: all 0.5s ease-in;
+    width: 75%;
+
+    @media (min-width: 1200px) {
+      background-color: transparent;
+      height: auto;
+      left: 0;
+      position: relative;
+      top: 0;
+      width: 100%;
+    }
   }
 
   .nav-item {

@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <button class="burger-btn" :class="{show: isBurgerButtonVisible}">&#9776;</button>
-      <NavItem :class="{show: showed}"/>
+      <button class="burger-btn"
+        @click="closeBurgerMenu">&#9776;</button>
+      <NavItem/>
     </div>
     <div class="router-container">
       <router-view/>
@@ -22,7 +23,14 @@ export default {
   data() {
     return {
       isBurgerButtonVisible: 'false',
+      isShow: false,
     };
+  },
+  methods: {
+    closeBurgerMenu() {
+      const elem = document.querySelector('.nav-list');
+      elem.classList.toggle('open');
+    },
   },
 };
 </script>
@@ -53,7 +61,7 @@ export default {
   display: flex;
   flex-direction: row;
   width: 100vw;
-  height: 25vw;
+  height: 50px;
   background-color: $primary;
 
   .burger-btn {
@@ -72,14 +80,19 @@ export default {
       display: none;
     }
   }
+
+  .open {
+    display: flex;
+    left: 0;
+  }
 }
 
 .burger-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25vw;
-  height: 25vw;
+  width: 50px;
+  height: 50px;
   line-height: 1;
   font-size: 28px;
   color: $text-white;
@@ -99,6 +112,12 @@ export default {
 }
 
 .router-container {
-  width: 80%;
+  width: 100%;
+  padding: 0 5%;
+
+  @media (min-width: 1200px) {
+    width: 80%;
+    padding: 0;
+  }
 }
 </style>
