@@ -204,10 +204,12 @@ h2 {
     font-size: 16px;
     width: 100%;
     margin: 10px 0 0;
+    box-sizing: border-box;
 
     @media (min-width: 1200px) {
       font-size: 20px;
-      margin: 20px 15% 0;
+      width: 90%;
+      margin: 20px 5% 0;
     }
   }
 
